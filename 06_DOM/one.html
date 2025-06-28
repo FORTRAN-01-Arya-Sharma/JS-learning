@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM learning</title>
+    <style>
+        .bg-black {
+            background-color: rgb(36, 36, 36);
+            color: white;
+            
+        }
+    </style>
+</head>
+<body class="bg-black" >
+    <div >
+        <h1 id="title" class="heading">DOM learning on chai aur code <span style="display: none;"> test text</span></h1>
+        <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque maiores mollitia recusandae.</h1>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente</p>
+
+        <input type="password" name="" id="">
+
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+        </ul>
+
+    </div>
+</body>
+</html>
+
+
+<!-- title.innerText
+'DOM learning on chai aur code'
+title.textContent
+'DOM learning on chai aur code  test text' -->
+
+<!-- 
+innerText gives you only the visible text on the page (it respects CSS like display: none).
+
+textContent gives you all the text, even if it’s hidden with CSS. -->
+
+<!-- title.innerHTML
+'DOM learning on chai aur code <span style="display: none;"> test text</span>' --> 
+<!-- ye to innerHTML bhi de ga jo hamne use kari hai -->
+
+
+<!-- const single = document.querySelector('.my-class');   // Element or null -->
+<!-- const all = document.querySelectorAll('.my-class');   // NodeList -->

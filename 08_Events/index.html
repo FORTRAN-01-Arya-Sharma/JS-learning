@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html events</title>
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+
+    // old appreach 
+    // document.getElementById('owl').onclick = function(){
+    //     alert('owl clicked')
+    // }
+    //attachEvent()
+    //jQuery - on
+
+    //type, timestamp, defaultPrevented
+    //target, toElement, srcElement, currentTarget
+    //clientX, clientY, screenX, screenY
+    //altkey, ctrlkey,shitkey,KeyCode
+
+
+    //so this is event bubbling its as default case in which the event is triggered from the target element and then it bubbles up to the parent elements that is first owl then images 
+
+// ⚠️⚠️⚠️
+// 🚨 What does false mean?
+// false means the event listener is set to trigger during the bubbling phase.
+
+// The bubbling phase is when an event starts from the target element and bubbles up through its ancestors (like going from div inside to body outside).
+
+// This is the default behavior, so you can also omit it entirely and get the same result.
+
+// Optional: What if it were true?
+// true means the event listener will trigger during the capturing phase, when the event travels from the root down to the target element.
+// ⚠️⚠️⚠️
+
+
+
+
+    // document.getElementById('images').addEventListener('click',(e)=>{
+    //     console.log('click inside the ul');     
+    // },false)
+
+    // document.getElementById('owl').addEventListener('click',(e)=>{
+    //     console.log('owl click');     
+    // },false)
+
+    //but in this case the event is going from parent to child element that is first images then owl cause its event capturing
+    // document.getElementById('images').addEventListener('click',(e)=>{
+    //     console.log('click inside the ul');     
+    // },false)
+
+    // document.getElementById('owl').addEventListener('click',(e)=>{
+    //     console.log('owl click');   
+    //     e.stopPropagation() //this is to stop event bubbling 
+    // },false)
+
+
+    // document.getElementById('google').addEventListener('click',(e)=>{
+    //     console.log('google click');
+    //     e.preventDefault()
+    //     e.stopPropagation()
+    // },false)
+
+
+    document.querySelector('#images').addEventListener('click',(e)=>{
+        console.log(e.target.tagName);
+        if(e.target.tagName === 'IMG'){
+            let removeit = e.target.parentNode
+            //first methord 
+            removeit.remove()
+
+            // second methord
+            // removeit.parentNode.removeChild(removeit)
+        }
+    },false)
+</script>
+</html>

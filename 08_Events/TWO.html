@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>this is a project</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const stop = () =>{
+        console.log("this is a message after 2 seconds");        
+    }
+    const changeText = ()=>{
+        document.querySelector('h1').innerHTML = "best series"
+    }
+    setTimeout(stop, 2000)
+    const ChangeMe = setTimeout(changeText, 3000)
+
+    document.querySelector('#stop').addEventListener('click',()=>{
+        clearTimeout(ChangeMe)
+        console.log("STOPPED");
+        
+    })
+</script>
+</html>

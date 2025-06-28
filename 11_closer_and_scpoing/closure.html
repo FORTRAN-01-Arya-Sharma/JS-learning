@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closure</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+    <script>
+        // function init(){
+        //     let name = "Mozilla"; // name is a local variable created by init
+
+        //     function displayName() { // displayName() is the inner function, a closure
+        //         console.log(name); // use variable declared in the parent function
+        //     }
+
+        //     displayName();
+        // }
+
+        // init(); // call the outer function
+
+
+
+         // function outer(){
+            //     let username = "John"; // outer function variable
+            //     console.log("OUTER",secret);
+            
+            //     function inner() { // inner function, a closure
+            //         let secret = "my69secret"; // inner function variable
+            //         console.log("inner",username); // access variable from outer function
+            //         }
+            //     function inner2() { // another inner function
+            //         console.log("inner2",username); // access variable from outer function
+            //         console.log("secret",secret); // ReferenceError: secret is not defined
+            
+            //     }    
+            //     inner(); // call the inner function
+            //     inner2(); // call the inner2 function
+            // }
+            
+            // outer(); // call the outer function
+            // console.log("too outer",username); // ReferenceError: username is not defined
+            
+
+
+
+
+
+            function makeFunc(){
+                const name = "Crome";
+                function displayName(){
+                    console.log(name);
+                    
+                }
+                return displayName
+            }
+            //in displayName, name is a closure variable the variables of outer function will be available to inner function
+
+            //displayName is a closure function, it has access to the variables of the outer function makeFunc
+            const myfunc = makeFunc();
+            myfunc();
+
+    </script>
+
+    <script>
+        // document.getElementById("orange").onclick = function() {
+        //     document.body.style.backgroundColor = "orange";
+        // };
+        // document.getElementById("green").onclick = function() {
+        //     document.body.style.backgroundColor = "green";
+        // };
+
+        function clickHandler(colors) {
+            // document.body.style.backgroundColor = `${color}`;
+            return function(){
+                document.body.style.backgroundColor = `${colors}`
+            }
+
+        }
+
+        document.getElementById("orange").onclick = clickHandler("orange")
+        document.getElementById("green").onclick = clickHandler("green")
+
+    </script>
+</html>

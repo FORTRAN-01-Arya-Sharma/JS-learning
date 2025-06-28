@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+    <!-- 0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl)
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText)
+            console.log(typeof data);
+            console.log(data.followers);
+        }
+    }
+    xhr.send();
+</script>
+</html>
+
+
+<!-- 📝 Brief Summary Note:
+This JavaScript code uses XMLHttpRequest to make an API call to GitHub for user hiteshchoudhary. It:
+
+Sets up a GET request.
+
+Listens for the request’s progress with onreadystatechange.
+
+Once the request is complete (readyState === 4), it:
+
+Parses the JSON response.
+
+Logs the response type and the number of followers to the console. -->
+
+<!-- ❗NOTES❗  -->
+<!-- to easily use and understand API we use json formatter -->
+ <!-- https://jsonformatter.curiousconcept.com/ --> 
+<!-- console.log is not the part of core javascript, it's just a debugging tool its a browser feature/dev tool this inject the runtime of js -->
+ <!-- nodejs is an implementation of javascript the v8 engine -->
+<!-- The V8 engine is the JavaScript engine developed by Google for the Chrome browser. It is written in C++ and is responsible for executing JavaScript code. -->
+
+
+<!-- 🧩How Node.js Uses V8:
+When you write JavaScript in Node.js, it is passed to the V8 engine.
+
+V8 parses it, compiles it into machine code, and executes it on your computer's CPU.
+
+Node.js adds APIs (like fs, http, etc.) to allow JavaScript to interact with the system (these are not part of V8, but part of Node.js itself). -->
+
+<!-- d8 console.css the console.log comes from here -->
